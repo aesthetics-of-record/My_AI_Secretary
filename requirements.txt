@@ -1,0 +1,7 @@
+langchain
+openai
+google-search-results
+huggingface_hub
+wikipedia
+fastapi
+uvicorn
