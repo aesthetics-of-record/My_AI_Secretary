@@ -14,7 +14,7 @@ class GetCurrentWeather(BaseModel):
 
     location: str = Field(
         description="지역의 도시, ex) 대한민국 청주")
-    unit: Literal["맑음", "흐림", "비", "눈"] = Field(
+    unit: Literal["눈", "폭설", "폭우", "맑음", "흐림", "비"] = Field(
         description="현재 날씨의 상태"
     )
 
@@ -27,5 +27,5 @@ model = ChatOpenAI(model="gpt-3.5-turbo-1106").bind(
 )
 chain = prompt | model | PydanticToolsParser(tools=[GetCurrentWeather])
 
-result = chain.invoke({"input": "강원도의 날씨는 어때?"})
+result = chain.invoke({"input": "현재 괴산의 날씨는 어때?"})
 print(result)
